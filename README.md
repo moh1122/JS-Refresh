@@ -1,6 +1,6 @@
 # 🔁 LMS Section Navigation Hard Reload Snippet
 
-This snippet forces a **full page reload** on section/lesson navigation inside Matrix LMS (or any similar SPA-based LMS like Code Institute). It ensures that all embedded scripts, video players, and custom HTML snippets initialize cleanly.
+This snippet forces a **full page reload** on section/lesson navigation inside Matrix LMS (or any similar SPA-based LMS). It ensures that all embedded scripts, video players, and custom HTML snippets initialize cleanly.
 
 ---
 
