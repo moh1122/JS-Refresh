@@ -1,4 +1,3 @@
-<!-- One-time safe init (runs once per full page load) -->
 <script>
 (function () {
   if (window.__ciBodyInitOnce) return;
@@ -9,14 +8,12 @@
   }
 
   function run() {
-    // IMPORTANT: this is what wires up the player + transcript
     safe(function () {
       if (window.ci_youtube_player && typeof ci_youtube_player.init === "function") {
         ci_youtube_player.init();
       }
     });
 
-    // keep your other page initializers
     safe(window.enablePgAnswer);
     safe(window.enableResize);
     safe(window.enableChallengeAnswer);
@@ -31,7 +28,6 @@
 })();
 </script>
 
-<!-- First-video heal (your V3) + post-init so transcripts attach after heal -->
 <script>
 (function () {
   if (window.__ciFirstVideoFixV3p) return;
@@ -84,7 +80,6 @@
     return noIframe || tooSmall;
   }
 
-  // Re-run transcript/player bindings exactly once after heal or attach
   let ranPostInit = false;
   function postInitFor(wrapper) {
     if (ranPostInit) return;
@@ -96,7 +91,6 @@
       //   return;
       // }
 
-      // Fallback: your player init wires the transcript listeners too
       if (window.ci_youtube_player && typeof ci_youtube_player.init === "function") {
         ci_youtube_player.init();
       }
@@ -161,7 +155,7 @@
             rebuildOnce(node);
           } else {
             const wrap = node && node.closest(".player-wrapper, .ci-youtube-player, #player-container-1");
-            postInitFor(wrap); // make sure transcript hooks attach even without rebuild
+            postInitFor(wrap); 
           }
         }, 120);
       } else {
